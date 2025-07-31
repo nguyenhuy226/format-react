@@ -1,0 +1,33 @@
+const PROFILE = "/profile";
+
+export const PATH = {
+  Home: "/",
+  Product: "/product",
+  ProductDetail: "/product/:id",
+  Collection: "/collection",
+  CollectionDetail: "/collection/:slug",
+  Category: "/:slug/:id",
+  Login: "/login",
+  Register: "/register",
+  Store: "/store",
+  Cart: "/cart",
+  Checkout: "/checkout",
+  Payment: "/payment",
+  OrderComplete: "/order-complete",
+  // ResetPassword: "/reset-password",
+  // Contact: "/lien-he",
+  // Faq: "/faq",
+  Profile: {
+    Index: PROFILE,
+    AddressList: PROFILE + "/address",
+    AddressAdd: PROFILE + "/address/add",
+    AddressEdit: PROFILE + "/address/edit/:id",
+    Comment: PROFILE + "/comment",
+    Info: PROFILE + "/info",
+    Offer: PROFILE + "/offer",
+    NewsLetter: PROFILE + "/newsletter",
+    Wishlist: PROFILE + "/wishlist",
+    Order: PROFILE + "/order",
+    Watched: PROFILE + "/watched",
+  },
+};
