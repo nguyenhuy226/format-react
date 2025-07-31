@@ -8,6 +8,7 @@ import { useSearch } from '@/hooks/useSearch';
 import { productService } from '@/services/product';
 import queryString from 'query-string';
 import React from 'react'
+import { Helmet } from 'react-helmet';
 
 
 export const HomePage = () => {
@@ -28,6 +29,9 @@ export const HomePage = () => {
   })
   return (
     <main className="mainwrapper homepage">
+      <Helmet>
+        <title>Trang chủ</title>
+      </Helmet>
       <section className="slider">
         <Slider className="slider__item-wrap">
           <div className="slider__item">

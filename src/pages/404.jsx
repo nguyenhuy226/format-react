@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Service } from '@/components/Service';
 import { Contact } from '@/components/Contact';
+import { Helmet } from 'react-helmet';
 
 export const Page404 = () => {
   const navigate = useNavigate();
@@ -19,6 +20,9 @@ export const Page404 = () => {
   }, [navigate]);
   return (
     <main className="mainwrapper page404">
+       <Helmet>
+        <title>Không tìm thấy trang</title>
+      </Helmet>
       <section className="page404_main">
         <div className="page404_main-wrap">
           <img className="page404-img" src="/images/404-page_1.png" alt />

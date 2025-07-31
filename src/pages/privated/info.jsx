@@ -14,6 +14,7 @@ import _ from 'lodash'
 import { object } from '@/utils/object'
 import { Radio } from '@/components/Radio'
 import { PATH } from '@/config'
+import { Helmet } from 'react-helmet'
 const rules = {
     name: [required()],
     password: [
@@ -71,7 +72,10 @@ export const Info = () => {
     }
 
     return (<div className="account__panel">
-        <p className="account__panel-title"><img  onClick={()=>setPopoverAccountMobile(true)} className="btn-open-nav" src="/images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="btn-nav" />thông tin cá nhân</p>
+        <Helmet>
+            <title>Thông tin chi tiết</title>
+        </Helmet>
+        <p className="account__panel-title"><img onClick={() => setPopoverAccountMobile(true)} className="btn-open-nav" src="/images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="btn-nav" />thông tin cá nhân</p>
         <div className="account__form">
             <Field
                 {...form.register('name')}

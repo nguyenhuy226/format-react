@@ -1,10 +1,14 @@
 import { Contact } from '@/components/Contact'
 import { Service } from '@/components/Service'
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 export const StotePage = () => {
   return (
     <main className="mainwrapper storepage">
+      <Helmet>
+        <title>Cửa hàng</title>
+      </Helmet>
       <div className="containt__store">
         <div className="breadcrumbs">
           <div className="container">

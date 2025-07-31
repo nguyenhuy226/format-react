@@ -1,7 +1,7 @@
 import { cartService } from "@/services/cart";
 import { getToken, handleError, storeCart, storePreCheckoutData, storePreCheckoutResponse } from "@/utils";
 import { call, delay, put, race, select, take } from "redux-saga/effects";
-import { cartActions, getCartAction, updateItemQuantitySuccessAction } from ".";
+import { cartActions, getCartAction, getInitialState, updateItemQuantitySuccessAction } from ".";
 import { authActions } from "../auth";
 
 
@@ -73,6 +73,7 @@ export function* clearCart() {
     yield put(cartActions.setCart(null));
     // yield put(cartActions.clearCart())
     // const innitialState = getInitialState()
+    // console.log(innitialState)
     yield put(cartActions.resetCart())
 }
 

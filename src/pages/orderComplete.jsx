@@ -3,18 +3,22 @@ import { Contact } from '@/components/Contact'
 import { Service } from '@/components/Service'
 import { PATH } from '@/config'
 import { useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 export const OrderComplete = () => {
-    const {state} =useLocation()
-    const navigate= useNavigate()
-    useEffect(()=>{
-        if(!state?.order_code) {
+    const { state } = useLocation()
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (!state?.order_code) {
             navigate(PATH.Product)
         }
-    },[state])
+    }, [state])
     return (
         <main className="mainwrapper completepage">
+            <Helmet>
+                <title>Hoàn thành</title>
+            </Helmet>
             <section className="complete">
                 <div className="container">
                     <div className="complete__wrapt">
@@ -27,7 +31,7 @@ export const OrderComplete = () => {
                         <p className="complete__des">Đơn hàng {state?.order_code} của Quý khách sẽ được xử lý và vận chuyển trong thời
                             gian sớm nhất</p>
                         <Link to={PATH.Product}>
-                        <Button>tiếp tục mua sắm</Button>
+                            <Button>tiếp tục mua sắm</Button>
                         </Link>
                     </div>
                 </div>

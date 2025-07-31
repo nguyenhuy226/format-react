@@ -8,6 +8,7 @@ import { handleError, regex, required } from '@/utils'
 import { object } from '@/utils/object'
 import { message, Spin } from 'antd'
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link, useLocation, useNavigate, useOutletContext, useParams } from 'react-router-dom'
 
 const rules = {
@@ -27,7 +28,7 @@ export const AddressEdit = () => {
     const [provinces, setProvinces] = useState([]);
     const [districts, setDistricts] = useState([]);
     const [wards, setWards] = useState([]);
-    const { data ,loading: getAddressLoading} = useQuery({
+    const { data, loading: getAddressLoading } = useQuery({
         enable: !!id,
         queryFn: () => addressService.getAddressDetail(id),
         onError: () => {
@@ -93,6 +94,9 @@ export const AddressEdit = () => {
     }
     return (
         <Spin spinning={getAddressLoading} tip="Đang cập nhật địa chỉ...">
+            <Helmet>
+                <title>Chỉnh sửa địa chỉ</title>
+            </Helmet>
             <div className="account__panel">
                 <div className="address__panel-edit">
                     <p className="account__panel-title">

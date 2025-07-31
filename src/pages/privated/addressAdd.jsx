@@ -7,6 +7,7 @@ import { addressService } from '@/services/address'
 import { handleError, regex, required } from '@/utils'
 import { message } from 'antd'
 import { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link, useLocation, useNavigate, useOutletContext } from 'react-router-dom'
 
 const rules = {
@@ -62,7 +63,7 @@ export const AddressAdd = () => {
         enable: false,
         queryFn: () => addressService.addAddress(form.values)
     })
-      const redirectBackTo = location.state?.redirectBackTo || PATH.Profile.AddressList;
+    const redirectBackTo = location.state?.redirectBackTo || PATH.Profile.AddressList;
     const onSubmit = async () => {
         try {
             if (form.validate()) {
@@ -75,9 +76,12 @@ export const AddressAdd = () => {
         }
     }
     return (<div className="account__panel">
+        <Helmet>
+            <title>Thêm địa chỉ</title>
+        </Helmet>
         <div className="address__panel-add">
             <p className="account__panel-title">
-                <img className="btn-open-nav" onClick={() =>setPopoverAccountMobile(true)} src="/images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="btn-nav" />
+                <img className="btn-open-nav" onClick={() => setPopoverAccountMobile(true)} src="/images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="btn-nav" />
                 <Link to={PATH.Profile.AddressList}> <img className="back-img-address" src="/images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="arrow" style={{ transform: 'rotate(180deg)', width: 31 }} /> </Link>thêm địa chỉ nhận hàng</p>
             <div className="account__form">
                 <Field
@@ -172,7 +176,7 @@ export const AddressAdd = () => {
                 // checked={isChangePass}
                 />
                 <div className="button">
-                    <Button onClick={() =>  navigate(redirectBackTo)} className="white col-xl-6 col-12">hủy bỏ</Button>
+                    <Button onClick={() => navigate(redirectBackTo)} className="white col-xl-6 col-12">hủy bỏ</Button>
                     <Button className="col-xl-6 col-12" loading={loading} onClick={onSubmit}>lưu lại</Button>
                 </div>
             </div>

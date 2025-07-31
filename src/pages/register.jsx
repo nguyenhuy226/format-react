@@ -1,17 +1,17 @@
 import { Button } from '@/components/Button'
-import { Field } from '@/components/Field'
-import { PATH } from '@/config'
-import { useScrollToTop } from '@/hooks/useScrollToTop'
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useForm } from '@/hooks/useForm'
-import { confirm, handleError, regex, required } from '@/utils'
-import { useQuery } from '@/hooks/useQuery'
-import { userService } from '@/services/user'
-import { DatePicker, message } from 'antd'
-import { Radio } from '@/components/Radio'
 import { Contact } from '@/components/Contact'
+import { Field } from '@/components/Field'
+import { Radio } from '@/components/Radio'
 import { Service } from '@/components/Service'
+import { PATH } from '@/config'
+import { useForm } from '@/hooks/useForm'
+import { useQuery } from '@/hooks/useQuery'
+import { useScrollToTop } from '@/hooks/useScrollToTop'
+import { userService } from '@/services/user'
+import { confirm, handleError, regex, required } from '@/utils'
+import { message } from 'antd'
+import { Helmet } from 'react-helmet'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 export const RegisterPage = () => {
@@ -63,6 +63,9 @@ export const RegisterPage = () => {
     }
     return (
         <main className="mainwrapper loginpage">
+            <Helmet>
+                <title>Đăng ký</title>
+            </Helmet>
             <section className="containt__login">
                 <h2 className="title">đăng ký tài khoản</h2>
                 <p className="login__des">Vui lòng nhập đầy đủ thông tin</p>

@@ -8,6 +8,7 @@ import { useCart } from '@/hooks/useCart'
 import { currency } from '@/utils'
 import { Spin } from 'antd'
 import React, { useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 export const CartPage = () => {
@@ -23,6 +24,9 @@ export const CartPage = () => {
     }, [])
     return (
         <main className="mainwrapper cartpage">
+            <Helmet>
+                <title>Giỏ hàng</title>
+            </Helmet>
             <section className="cart">
                 {
                     cart?.cart?.length > 0 ? <>

@@ -11,6 +11,7 @@ import { handleError, regex, required } from '@/utils'
 import { coppyToClipboard } from '@/utils/copyToClipBoard'
 import { message } from 'antd'
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -44,6 +45,9 @@ export const LoginPage = () => {
     }
     return (
         <main className="mainwrapper loginpage">
+            <Helmet>
+                <title>Đăng nhập</title>
+            </Helmet>
             <section className="containt__login">
                 <h2 className="title">đăng nhập</h2>
                 <p className="login__des">Vui lòng nhập thông tin và tận hưởng trải nghiệm cá nhân hóa cùng Format</p>

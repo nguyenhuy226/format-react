@@ -1,11 +1,15 @@
 import React from 'react'
+import { Helmet } from 'react-helmet';
 import { useOutletContext } from 'react-router-dom';
 
 export const MyOffer = () => {
     const { setPopoverAccountMobile } = useOutletContext();
 
-    return ( <div className="account__panel">
-        <p className="account__panel-title"><img className="btn-open-nav" onClick={()=>setPopoverAccountMobile(true)}  src="/images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="btn-nav" /> ưu đãi của tôi</p>
+    return (<div className="account__panel">
+        <Helmet>
+            <title>Khuyến mãi</title>
+        </Helmet>
+        <p className="account__panel-title"><img className="btn-open-nav" onClick={() => setPopoverAccountMobile(true)} src="/images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="btn-nav" /> ưu đãi của tôi</p>
         <div className="endow__panel row">
             <div className="col-xl-6 col-12">
                 <div className="endow__item">

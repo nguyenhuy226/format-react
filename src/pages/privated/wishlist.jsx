@@ -8,6 +8,7 @@ import { productService } from '@/services/product'
 import { addCartItemAction } from '@/stories/cart'
 import { message } from 'antd'
 import { useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { useDispatch } from 'react-redux'
 import { useOutletContext } from 'react-router-dom'
 
@@ -45,6 +46,9 @@ export const Wishlist = () => {
         }
     }
     return (<div className="account__panel">
+        <Helmet>
+            <title>Sản phẩm yêu thích</title>
+        </Helmet>
         <p className="account__panel-title"><img className="btn-open-nav" onClick={() => setPopoverAccountMobile(true)} src="/images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="btn-nav" />sản phẩm yêu thích</p>
         <div className="wishlist__top">
             <div className="wishlist__quantity">có {data?.data?.length} sản phẩm</div>

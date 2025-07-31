@@ -10,10 +10,11 @@ import { productService } from '@/services/product'
 import { cn } from '@/utils'
 import queryString from 'query-string'
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 export const ProductPage = () => {
-    const [popoverFilter ,setpopoverFilter] = useState(false)
+    const [popoverFilter, setpopoverFilter] = useState(false)
 
     const [search, setSearch] = useSearch({
         soft: 'asc',
@@ -132,6 +133,9 @@ export const ProductPage = () => {
     };
     return (
         <main className="mainwrapper productpage">
+            <Helmet>
+                <title>Sản phẩm</title>
+            </Helmet>
             <div className="breadcrumbs">
                 <div className="container">
                     <p className="breadcrumbs-item">Trang chủ</p>
@@ -145,7 +149,7 @@ export const ProductPage = () => {
             </div>
             <section className="product">
                 <div className="container">
-                    <div className={cn("product__filter", {active : popoverFilter})}>
+                    <div className={cn("product__filter", { active: popoverFilter })}>
                         <div className="product__filter-title">
                             lọc sản phẩm
                             <img className="btn-filter-close" onClick={() => setpopoverFilter(false)} src="images/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="close" /></div>
@@ -196,9 +200,10 @@ export const ProductPage = () => {
                                                 return (
                                                     <Link key={e.id} className="panle__item"
                                                         to={`${pathname}?${newSearch.toString()}`}
-                                                        onClick={(event) => { 
+                                                        onClick={(event) => {
                                                             setpopoverFilter(false)
-                                                            handleLinkClick(event, e, 'danhMuc')}}
+                                                            handleLinkClick(event, e, 'danhMuc')
+                                                        }}
                                                     >
                                                         <input type="checkbox" name={e.name} id={e.name}
                                                             checked={selectedFilters?.danhMuc?.id === e.id}
@@ -218,7 +223,8 @@ export const ProductPage = () => {
                                             to={`${pathname}?${newSearch.toString()}`}
                                             onClick={(event) => {
                                                 setpopoverFilter(false)
-                                                handleLinkClick(event, { id: 1, minPrice: 2000000, maxPrice: 2500000, name: "2.000.000 ₫ - 2.500.000 ₫" }, 'gia')}}
+                                                handleLinkClick(event, { id: 1, minPrice: 2000000, maxPrice: 2500000, name: "2.000.000 ₫ - 2.500.000 ₫" }, 'gia')
+                                            }}
                                         >
                                             <input type="checkbox" name="gia1" id="gia1"
                                                 checked={selectedFilters?.gia?.id === 1}
@@ -230,7 +236,8 @@ export const ProductPage = () => {
                                             to={`${pathname}?${newSearch.toString()}`}
                                             onClick={(event) => {
                                                 setpopoverFilter(false)
-                                                handleLinkClick(event, { id: 2, minPrice: 2500000, maxPrice: 3000000, name: "2.500.000 ₫ - 3.000.000 ₫" }, 'gia')}}
+                                                handleLinkClick(event, { id: 2, minPrice: 2500000, maxPrice: 3000000, name: "2.500.000 ₫ - 3.000.000 ₫" }, 'gia')
+                                            }}
                                         >
                                             <input type="checkbox" name="gia2" id="gia2"
                                                 checked={selectedFilters?.gia?.id === 2}

@@ -8,6 +8,7 @@ import { authActions, loginSuccesAction, logoutSuccesAction } from ".";
 
 export function* fetchLogin(action) {
   try {
+    yield put(authActions.setToogleLoading(true))
     const res = yield call(authService.login, action.payload);
     setToken(res);
     const user = yield call(userService.getUser);
@@ -18,6 +19,8 @@ export function* fetchLogin(action) {
   } catch (error) {
     console.log(error)
     throw error.response?.data
+  } finally {
+    yield put(authActions.setToogleLoading(false))
   }
 }
 

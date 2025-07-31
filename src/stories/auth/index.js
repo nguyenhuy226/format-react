@@ -10,7 +10,7 @@ const initialState = {
 };
 
 
-export const { reducer: authReducer, actions: authActions ,name} = createSlice({
+export const { reducer: authReducer, actions: authActions, name } = createSlice({
   initialState,
   name: "auth",
   reducers: {
@@ -20,24 +20,10 @@ export const { reducer: authReducer, actions: authActions ,name} = createSlice({
     setUser: (state, action) => {
       state.user = action.payload;
     },
+    setToogleLoading: (state, action) => {
+      state.loginLoading = action.payload;
+    }
   },
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(loginAction.pending, (state) => {
-  //       state.status = "loading";
-  //       state.loginLoading = true;
-  //     })
-  //     .addCase(loginAction.fulfilled, (state, action) => {
-  //       state.status = "succeeded";
-  //       state.user = action.payload;
-  //       state.loginLoading = false;
-  //     })
-  //     .addCase(loginAction.rejected, (state, action) => {
-  //       state.status = "failed";
-  //       state.loginLoading = false;
-  //       console.error(action.error.message);
-  //     });
-  // },
 });
 export const loginAction = createAction(`${name}/login`);
 export const logoutAction = createAction(`${name}/logoutAction`);

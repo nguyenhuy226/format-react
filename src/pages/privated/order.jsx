@@ -4,6 +4,7 @@ import { useQuery } from '@/hooks/useQuery'
 import { useSearch } from '@/hooks/useSearch'
 import { orderService } from '@/services/order'
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { useOutletContext } from 'react-router-dom'
 
 
@@ -18,7 +19,10 @@ export const Order = () => {
         queryFn: () => orderService.getOrder(`?page=${search.page}`)
     })
     return (<div className="account__panel">
-        <p className="account__panel-title"><img className="btn-open-nav" onClick={()=>setPopoverAccountMobile(true)} src="/images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="btn-nav" />lịch sử đơn hàng</p>
+        <Helmet>
+            <title>Đơn hàng</title>
+        </Helmet>
+        <p className="account__panel-title"><img className="btn-open-nav" onClick={() => setPopoverAccountMobile(true)} src="/images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="btn-nav" />lịch sử đơn hàng</p>
         <div className="order__panel row">
             <OrderCardList
                 loading={loading}

@@ -11,6 +11,7 @@ import { cartService } from '@/services/cart'
 import { cartActions } from '@/stories/cart'
 import { cn, currency, handleError, storePreCheckoutData } from '@/utils'
 import { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -74,6 +75,9 @@ export const Paymentpage = () => {
     }
     return (
         <main className="paymentpage">
+            <Helmet>
+                <title>Thanh toán</title>
+            </Helmet>
             <div className="payment__container">
                 <div className="payment__progress">
                     <div className="payment__progress-item active">

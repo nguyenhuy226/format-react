@@ -1,10 +1,14 @@
 import { Contact } from '@/components/Contact'
 import { Service } from '@/components/Service'
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 export const CollectionPage = () => {
     return (
         <main className="mainwrapper collectionpage">
+            <Helmet>
+                <title>Bộ sưu tập</title>
+            </Helmet>
             <div className="breadcrumbs">
                 <div className="container">
                     <p className="breadcrumbs-item">Trang chủ</p>

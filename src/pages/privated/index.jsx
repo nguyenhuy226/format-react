@@ -4,6 +4,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useQuery } from '@/hooks/useQuery';
 import { addressService } from '@/services/address';
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet';
 import { generatePath, Link, NavLink, useOutletContext } from 'react-router-dom'
 
 export const Profile = () => {
@@ -45,7 +46,10 @@ export const Profile = () => {
 
     return (
         <div className="account__panel">
-            <p className="account__panel-title"><img  onClick={() =>setPopoverAccountMobile(true)} className="btn-open-nav" src="./images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="btn-nav" />tài
+            <Helmet>
+                <title>Tài khoản</title>
+            </Helmet>
+            <p className="account__panel-title"><img onClick={() => setPopoverAccountMobile(true)} className="btn-open-nav" src="./images/chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="btn-nav" />tài
                 khoản của tôi</p>
             <div className="account__panel-info">
                 <div className="info__item">

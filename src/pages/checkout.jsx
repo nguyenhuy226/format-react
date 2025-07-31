@@ -11,6 +11,7 @@ import { Radio } from '@/components/Radio'
 import { currency, storePreCheckoutData } from '@/utils'
 import { cartActions } from '@/stories/cart'
 import { useDispatch } from 'react-redux'
+import { Helmet } from 'react-helmet'
 
 
 
@@ -62,6 +63,9 @@ export const CheckoutPage = () => {
     }
     return (
         <main className="shippingpage">
+            <Helmet>
+                <title>Checkout</title>
+            </Helmet>
             <div className="shipping__container">
                 <div className="shipping__progress">
                     <div className="shipping__progress-item active">

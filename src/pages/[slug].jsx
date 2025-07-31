@@ -17,6 +17,7 @@ import { addCartItemAction } from '@/stories/cart';
 import { currency } from '@/utils';
 import { Image, message } from 'antd';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -164,10 +165,10 @@ export const ProductDetailPage = () => {
                 <Skeleton height={24} width={300} />
               </div>
               <div className="product__tool-wishlist" onClick={user.user ? onAddWishlist : undefined}>
-              <Skeleton height={24} width={110} />
+                <Skeleton height={24} width={110} />
               </div>
               <div className="product__tool-share">
-              <Skeleton height={24} width={110} />
+                <Skeleton height={24} width={110} />
               </div>
             </div>
             <div className="product__endow">
@@ -223,11 +224,14 @@ export const ProductDetailPage = () => {
             <li>đánh giá</li>
           </ul>
           <div className="info__content">
-          <Skeleton height={400} width={1200} />
+            <Skeleton height={400} width={1200} />
           </div>
         </section>
       </div>
     </main> : <main className="mainwrapper productdetailpage">
+      <Helmet>
+        <title>{product?.name}</title>
+      </Helmet>
       <div className="containt__product-detail">
         <div className="breadcrumbs">
           <div className="container">
