@@ -87,21 +87,21 @@ export const Profile = () => {
                     <div className="info__item-content">
                         <p className="info__item-name">
                             {
-                                loading ? <Skeleton height={23} width={250} /> : addressDefault?.name
+                                loading ? <Skeleton height={23} width={250} /> : addressDefault?.name || "chưa có địa chỉ"
                             }
                         </p>
                         <p className="info__item-item"><img src="/images/call_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="true" />
                             {
-                                loading ? <Skeleton height={23} width={20} /> : addressDefault?.phone
+                                loading ? <Skeleton height={23} width={20} /> : addressDefault?.phone || "chưa có địa chỉ"
                             }
                         </p>
                         <p className="info__item-item">
                             <img src="/images/location.png" alt="local" />
                             {
-                                loading ? <Skeleton height={23} width={350} /> : `${addressDefault?.address},
+                                loading ? <Skeleton height={23} width={350} /> : addressDefault ?(`${addressDefault?.address},
                                 ${wards?.find(e => e.id === addressDefault?.ward)?.full_name},
                                 ${districts?.find(e => e.id === addressDefault?.district)?.full_name},
-                                ${provinces?.find(e => e.id === addressDefault?.province)?.full_name}`
+                                ${provinces?.find(e => e.id === addressDefault?.province)?.full_name}`) : "chưa có địa chỉ"
                             }
 
                         </p>

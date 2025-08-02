@@ -64,7 +64,20 @@ export const { reducer: cartReducer, actions: cartActions, name, getInitialState
                 preCheckoutResponse: {}
             }
         },
-        resetCart: () => initialState,
+        resetCart(state) {
+            return {
+                ...state,
+                openCartOver: false,
+                loading: {},
+                preCheckoutLoading: false,
+                preCheckoutData: {
+                    data: [],
+                    note: '',
+                    method: "COD"
+                },
+                preCheckoutResponse: {}
+            }
+        },
         setCart(state, action) {
             state.cart = action.payload
         },
